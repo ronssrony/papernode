@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>useraccount</title>
+    <link rel="stylesheet" href="/account.css">
+</head>
+<body>
+<header>
+    <h2 class="logo">LOGO</h2>
+    <nav class="navigation">
+       
+        <a href="#">Orders</a>
+          <a href="#">History</a>
+          <a href="#">Setting</a>
+        <form action="/auth/logout" method="POST">
+            <button type="submit" class="btn">Logout</button>
+        </form>
+    </nav>
+</header>
+<div class="promote">
+    <h4 class="quote">
+        Enjoy a smooth and hassle-free printing experience from start to finish
+    </h4>
+</div>
+<div class="profile-pic">
+    <label for="upload" class="upload-icon">
+        <input type="file" id="upload" accept="image/*">
+       <ion-icon name="person-circle-outline" class="icon"></ion-icon>
+    </label>
+</div>
+<button class="btnLogin-popup">Profile</button>
+
+
+<div class="wrapper">
+    <div class="content">
+        <h1>Username -  <span>{{username}}</span></h1>
+        <h3>Email<span> - </span>{{email}}</h3>
+        <h3>id<span> - </span>{{id}}</h3>
+    </div>
+</div>
+
+ <div class="order-button">
+    <a href="/order" class="order">Place an Order</a>
+</div>
+
+<script src="./account.js"></script>
+<script src="./auth.js"></script>
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+
+</body>
+</html>

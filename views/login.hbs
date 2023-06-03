@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Papertray</title>
+    <link rel = "stylesheet" href ="/login.css">
+</head>
+<body>
+    
+    <header>
+        <h2 class="logo">LOGO</h2>
+        <nav class="navigation">
+          <a href="#" class="dropdown-btn">Feature</a>
+          <div class="dropdown-content">
+            <a href="https://tinywow.com/pdf/to-word">PDF To DOC</a>
+            <a href="#">Link 2</a>
+            <a href="#">Link 3</a>
+          </div>
+          <a href="#">Services</a>
+          <a href="#">About</a>
+          <a href="#">Contact</a>
+        </nav>
+      </header>
+   <div class="content">
+    <h4>Copy</h4>
+    
+    <h1>Print </h1>
+    <h3>Scan </h3>
+    </div>
+   <div class="wrapper">
+        <span class="icon-close">    
+        <ion-icon name="close"></ion-icon>
+        </span>
+        <div class="form-box login">
+            <h2>Login</h2>
+            <form action="/auth/login" method="POST">
+           <div class = "input-box">
+                <span class="icon"><ion-icon name="mail"></ion-icon></span>
+             <input type="email" class="form-control" id="email" name="email" required >
+                <label>Email</label>
+           </div>
+           <div class = "input-box">
+            <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
+            <input type="password" class="form-control" id="password" name="password" required>
+            <label>password</label>
+       </div>
+       <div class="remember-forget">
+           <label><input type="checkbox">
+        Remember me</label>
+        <a href="#">Forgot Password?</a>
+       </div>
+       <button type="submit" class="btn-login">Login</button>
+       <div class="login-register">
+        <p>Don't have an account? <a href="/register" class="register-link">Register</a></p>
+
+       </div>
+            </form>
+        </div>
+   </div>
+   
+   {{#if message}}
+  
+    <div class="alert-msg">
+      <p>{{message}}</p>
+  </div>
+       {{/if}}
+    <script src="./script.js"></script>
+  
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+</html>
