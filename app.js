@@ -14,21 +14,20 @@ const bodyParser = require("body-parser") ;
 const stripe = require("stripe") ;
 const { Client } = require('pg');
 
-const client = new Client({
-  host: 'dpg-cp6d6vo21fec738gc630-a',
-  user: 'ptraylogin_user', // replace with your PostgreSQL username
-  password: 'Gq9PlY1OUSplKOKJUjOrWWsOYnqXmrqv', // replace with your PostgreSQL password
-  database: 'ptraylogin',
-  port: 5432, // default port for PostgreSQL
-
-  ssl: {
-    rejectUnauthorized: false,  // This is important for Render connections
-  },
+const db = mysql.createConnection({
+  host: "sql12.freesqldatabase.com",
+  user: "sql12708640",
+  password: "5bBub7zfHz",
+  database: "sql12708640",
 });
 
-client.connect()
-  .then(() => console.log('Connected to PostgreSQL database'))
-  .catch(err => console.error('Connection error', err.stack));
+db.connect((error) => {
+  if (error) {
+    console.log(error);
+  } else {
+    console.log("MYSQL connected");
+  }
+});
 
 
 
@@ -54,8 +53,8 @@ app.set("view engine", "hbs");
 app.use("/", require("./routes/pages"));
 app.use("/auth", require("./routes/auth"));
 
-app.listen(5000, () => {
-  console.log("server is started on port 5000");
+app.listen(3306, () => {
+  console.log("server is started on port 3306");
 });
 
 let stripeGateway = stripe(process.env.stripe_api) ;
