@@ -13,41 +13,71 @@
     <nav class="navigation">
        
         <a href="#">Orders</a>
-          <a href="#">History</a>
-          <a href="#">Setting</a>
+          <a href="/history">History</a>
+          <a href="/settings">Setting</a>
         <form action="/auth/logout" method="POST">
             <button type="submit" class="btn">Logout</button>
         </form>
     </nav>
 </header>
+ 
 <div class="promote">
     <h4 class="quote">
         Enjoy a smooth and hassle-free printing experience from start to finish
     </h4>
 </div>
-<div class="profile-pic">
-    <label for="upload" class="upload-icon">
-        <input type="file" id="upload" accept="image/*">
-       <ion-icon name="person-circle-outline" class="icon"></ion-icon>
-    </label>
-</div>
+
 <button class="btnLogin-popup">Profile</button>
 
-
+  
 <div class="wrapper">
-    <div class="content">
-        <h1>Username -  <span>{{username}}</span></h1>
-        <h3>Email<span> - </span>{{email}}</h3>
-        <h3>id<span> - </span>{{id}}</h3>
+
+   <div class="profile-wrapper">
+  <div class="profile-header">
+    <div class="profile-pic">
+      <img src="/image/uploaded_images/{{profileImage}}" alt="Profile Image">    
     </div>
+    <h2 class="card__title">{{username}}</h2>
+  </div>
+  <div class="profile-info">
+    <p><strong>Email:</strong> {{email}}</p>
+    <p><strong>Phone:</strong> {{phone}}</p>
+  </div>
 </div>
 
+    
+</div>
+
+  
  <div class="order-button">
     <a href="/order" class="order">Place an Order</a>
 </div>
+<script>
+  const profileButton = document.querySelector('.btnLogin-popup');
+  const wrapper = document.querySelector('.wrapper');
+
+  function showWrapper() {
+    wrapper.classList.add('active-popup');
+    document.addEventListener('click', handleOutsideClick);
+  }
+
+  function hideWrapper() {
+    wrapper.classList.remove('active-popup');
+    document.removeEventListener('click', handleOutsideClick);
+  }
+
+  function handleOutsideClick(event) {
+    if (!wrapper.contains(event.target) && event.target !== profileButton) {
+      hideWrapper();
+    }
+  }
+
+  profileButton.addEventListener('click', showWrapper);
+</script>
 
 <script src="./account.js"></script>
 <script src="./auth.js"></script>
+
 <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 

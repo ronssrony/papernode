@@ -30,14 +30,22 @@
 </div>
 
   <div class="container">
-     <form action="/auth/submit_order" method="POST" class="form-container" >
+     <form action="/auth/submitorder" method="POST" class="form-container" >
        <input type="hidden" id="user-email" name="user-email" value="{{email}}">
-        <input type="hidden" id="user-id" name="user-id" value="{{id}}"> 
-        <input type="hidden" id="user-id" name="user-id" value="{{orderNumber}}">
-        
+        <input type="hidden" id="user-id" name="userid" value="{{id}}"> 
+        <input type="hidden" id="order-id" name="orderid" > 
+        <input type="hidden" id="total_cost" name="totalcost" > 
+        <input type="hidden" id="finisher_cost" name="finishercost" > 
+        <input type="hidden" id="order_date" name="orderdate" > 
+        <input type="hidden" id="pickup_date" name="pickupdate" > 
+        <input type="hidden" id="total_page" name="totalpage" > 
         <label for="phone">Phone:</label>
         <input type="tel" id="phone" name="phone" required>
-
+        
+        <label for="file_upload">Upload File:</label>
+        <input type="file" id="file_upload" name="file_upload" accept=".pdf, .jpeg, .png" required>
+        <label for="quantity">Quantity:</label>
+        <input type="number" id="quantity" name="quantity" required>
         <label for="paper_size">Paper Size:</label>
         <input type="text" id="paper_size" name="paper_size" required>
 
@@ -55,28 +63,26 @@
         <option value="Hole Punch">Hole Punch</option>
              </select>
         </div>
-        <label for="quantity">Quantity:</label>
-        <input type="number" id="quantity" name="quantity" required>
+        
          <div id="pickup_location_container">
             <label for="pickup_location">Pickup Location:</label>
             <select id="pickup_location" name="pickup_location">
-                <option value="store1">Store 1</option>
-                <option value="store2">Store 2</option>
-                <option value="store3">Store 3</option>
+            {{#each campusname}} 
+             <option value="{{agent_name}}">{{agent_name}} </option>
+             {{/each}}
             </select>
         </div>
 
        
         
-        <label for="file_upload">Upload File:</label>
-        <input type="file" id="file_upload" name="file_upload" accept=".pdf, .jpeg, .png" required>
 
-        <button type="submit" class="button">Place Order</button>
+        <button type="submit" class= "button" id="place-order-button">Place Order</button>
     </form>
 
   </div>
- 
-   
+
+
+
 <script src="./order.js"></script>
 
 <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>

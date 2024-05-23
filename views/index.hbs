@@ -8,18 +8,18 @@
     <link rel = "stylesheet" href ="/style.css">
 </head>
 <body>
-    
-    <header>
-        <h2 class="logo">LOGO</h2>
+      <div class="frontpage">
+          <header>
+        <h2 class="logo">PAPERTRAY</h2>
         <nav class="navigation">
           <a href="#" class="dropdown-btn">Feature</a>
           <div class="dropdown-content">
             <a href="https://tinywow.com/pdf/to-word">PDF To DOC</a>
-            <a href="#">Link 2</a>
+            <a href="/pdftoword">pdf to word</a>
             <a href="#">Link 3</a>
           </div>
           <a href="#">Services</a>
-          <a href="#">About</a>
+          <a href="/carrer">Career</a>
           <a href="#">Contact</a>
 
           <button class="btnLogin-popup">Login</button>
@@ -98,15 +98,23 @@
       
       
    </div>
-    {{#if message}}
+      </div>
   
-    <div class="alert-msg">
-      <p>{{message}}</p>
-  </div>
-       {{/if}}
+  <footer>
+        <div class="footer-links">
+            <a href="/admin">Admin</a>
+            <a href="#">Contact</a>
+            <a href="#">Feedback</a>
+            <a href="#">Career</a>
+        </div>
+    </footer>
     <script src="./script.js"></script>
     <script src="./auth.js"></script>
+  
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>
+ 
+
+  
 </html>

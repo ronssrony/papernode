@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF to Word Conversion</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>PDF to Word Conversion</h1>
+        <div class="upload-section">
+            <input type="file" id="pdfFile" accept="application/pdf">
+            <p id="conversionStatus">Please select a PDF file</p>
+            <button id="convertBtn" style="display: none;">Convert to Word</button>
+        </div>
+        <a id="downloadBtn" style="display: none;"></a>
+    </div>
+
+    <script>const fileInput = document.getElementById('pdfFile');
+const convertBtn = document.getElementById('convertBtn');
+const conversionStatus = document.getElementById('conversionStatus');
+const downloadBtn = document.getElementById('downloadBtn');
+
+fileInput.addEventListener('change', handleFileSelect);
+convertBtn.addEventListener('click', convertToWord);
+
+function handleFileSelect(event) {
+  const file = event.target.files[0];
+  if (file.type === 'application/pdf') {
+    conversionStatus.textContent = 'PDF file selected';
+    convertBtn.style.display = 'block';
+  } else {
+    conversionStatus.textContent = 'Please select a PDF file';
+    convertBtn.style.display = 'none';
+  }
+}
+
+function convertToWord() {
+  conversionStatus.textContent = 'Converting...';
+
+  const file = fileInput.files[0];
+  const reader = new FileReader();
+
+  reader.onload = function (event) {
+    const arrayBuffer = event.target.result;
+
+    const PDF2DOCX = require('pdf2docx');
+    const pdf2docx = new PDF2DOCX();
+
+    pdf2docx.convert(arrayBuffer)
+      .then(resultBuffer => {
+        conversionStatus.textContent = 'Conversion successful';
+
+        // Download the converted Word file
+        const wordFileBlob = new Blob([resultBuffer], { type: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document' });
+        downloadBtn.href = URL.createObjectURL(wordFileBlob);
+        downloadBtn.download = 'converted.docx';
+        downloadBtn.textContent = 'Download';
+        downloadBtn.style.display = 'block';
+      })
+      .catch(error => {
+        console.error(error);
+        conversionStatus.textContent = 'Conversion failed';
+      });
+  };
+
+  reader.readAsArrayBuffer(file);
+}
+</script>
+</body>
+</html>
