@@ -24,28 +24,3 @@ function handleOutsideClick(event) {
 // Add event listener to profile button
 profileButton.addEventListener('click', showWrapper);
 
-
-
-// Get the input element and listen for changes
-const uploadInput = document.getElementById('upload');
-uploadInput.addEventListener('change', handleFileUpload);
-
-function handleFileUpload(event) {
-  const file = event.target.files[0];
-
-  // Check if a file is selected
-  if (file) {
-    // Perform actions with the uploaded file
-    console.log('File uploaded:', file);
-    
-    // You can store the uploaded file in local storage or send it to a server for further processing
-    
-    // Display the uploaded image in the profile picture section
-    const reader = new FileReader();
-    reader.onload = function(e) {
-      const profilePic = document.querySelector('.profile-pic');
-      profilePic.style.backgroundImage = `url(${e.target.result})`;
-    };
-    reader.readAsDataURL(file);
-  }
-}
