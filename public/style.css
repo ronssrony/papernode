@@ -458,6 +458,12 @@ textarea {
     .navigation .btnLogin-popup {
         margin-left: 20px;
     }
+    .wrapper {
+        width: 350px;
+    }
+    .wrapper.active {
+        height: 480px;
+    }
 }
 
 @media (max-width: 992px) {
@@ -467,6 +473,9 @@ textarea {
     }
     .wrapper {
         width: 80%;
+    }
+    .wrapper.active {
+        height: auto;
     }
 }
 
@@ -492,6 +501,12 @@ textarea {
         left: 50%;
         transform: translateX(-50%);
     }
+    .wrapper {
+        width: 90%;
+    }
+    .wrapper.active {
+        height: auto;
+    }
 }
 
 @media (max-width: 576px) {
@@ -506,5 +521,17 @@ textarea {
         width: 100%;
         left: 50%;
         transform: translateX(-50%);
+    }
+    footer {
+        padding: 20px 5%;
+    }
+    .footer-links a {
+        margin: 0 10px;
+    }
+    .wrapper {
+        width: 100%;
+    }
+    .wrapper.active {
+        height: auto;
     }
 }
