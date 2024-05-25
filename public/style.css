@@ -502,7 +502,7 @@ textarea {
         transform: translateX(-50%);
     }
     .wrapper {
-        width: 90%;
+        width: 60%;
     }
     .wrapper.active {
         height: auto;
